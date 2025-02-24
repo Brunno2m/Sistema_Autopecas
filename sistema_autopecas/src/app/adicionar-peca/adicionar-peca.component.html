@@ -1,0 +1,51 @@
+<!-- adicionar-peca.component.html -->
+<h1 class="text-center my-4">Catálogo de Peças</h1>
+<h3 class="text-center my-4">Adicionar Peça</h3>
+<form [formGroup]="pecaForm" (ngSubmit)="onSubmit()" class="container">
+  <div class="form-group mb-3">
+    <label for="nome" class="form-label">Nome da peça:</label>
+    <input id="nome" formControlName="nome" class="form-control">
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="aplicacao" class="form-label">Aplicação:</label>
+    <input id="aplicacao" formControlName="aplicacao" class="form-control">
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="ano" class="form-label">Ano:</label>
+    <input id="ano" formControlName="ano" class="form-control">
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="modelo" class="form-label">Modelo:</label>
+    <input id="modelo" formControlName="modelo" class="form-control">
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="marca" class="form-label">Marca:</label>
+    <input id="marca" formControlName="marca" class="form-control">
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="preco" class="form-label">Preço:</label>
+    <input id="preco" formControlName="preco" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="pecaForm.invalid">Adicionar Peça</button>
+</form>
+
+<!-- Botão para carregar o catálogo de peças -->
+<div class="text-center my-4">
+  <button (click)="carregarCatalogo()" class="btn btn-info">Mostrar Catálogo de Peças</button>
+</div>
+
+<!-- Lista de peças do catálogo exibida ao pressionar o botão -->
+<div *ngIf="mostrarCatalogo" class="container">
+  <h3 class="text-center my-4">Catálogo de Peças</h3>
+  <ul class="list-group">
+    <li *ngFor="let peca of catalogoPecas" class="list-group-item">
+      {{ peca.nome }}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,6 @@
+<h2 class="text-center my-4">Lista de Peças</h2>
+<ul class="list-group container">
+  <li *ngFor="let peca of pecas" class="list-group-item">
+    {{ peca.descricao() }}
+  </li>
+</ul>
